@@ -150,7 +150,8 @@ public class UploadImage extends AppCompatActivity {
                 pd.dismiss();
                 Toast.makeText(UploadImage.this, "Image Uploaded Succesfully", Toast.LENGTH_SHORT).show();
 
-
+                //double progress =(100.0*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
+                //progressDialog.setMessage("Uploaded:"+(int)progress+"%");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
