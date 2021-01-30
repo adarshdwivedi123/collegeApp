@@ -79,7 +79,7 @@ public class UploadNotice extends AppCompatActivity {
                     noticetitle.setError("Empty");
                     noticetitle.requestFocus();
                 }
-                else if(bitmap != null)
+                else if(bitmap == null)
                 {
                     uploadData();
                 }
@@ -98,6 +98,7 @@ public class UploadNotice extends AppCompatActivity {
         ByteArrayOutputStream baos=new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,50,baos);
         byte[] finalimage=baos.toByteArray();
+
         final StorageReference filepath;
         filepath=storageReference.child("Notice").child(finalimage+"jpg");
         final UploadTask uploadTask=filepath.putBytes(finalimage);
@@ -173,7 +174,6 @@ public class UploadNotice extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode ==REQ && resultCode  == RESULT_OK){
             Uri uri=data.getData();

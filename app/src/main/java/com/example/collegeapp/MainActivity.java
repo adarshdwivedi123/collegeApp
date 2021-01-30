@@ -10,31 +10,35 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    CardView uploadNotice;
+    CardView uploadNotice,AddgalleryImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         uploadNotice=findViewById(R.id.addNotice);
+        AddgalleryImage=findViewById(R.id.addGalleryImage);
 
         uploadNotice.setOnClickListener(this);
+        AddgalleryImage.setOnClickListener(this);
+
+
     }
 
-    @Override
-    public void onClick(View v) {
-        uploadNotice.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                switch(v.getId())
-                {
+                Intent intent;
+                switch(v.getId())   {
                     case R.id.addNotice:
-                        Intent intent=new Intent(MainActivity.this,UploadNotice.class);
+                        intent=new Intent(MainActivity.this,UploadNotice.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.addGalleryImage:
+                        intent=new Intent(MainActivity.this,UploadImage.class);
                         startActivity(intent);
                         break;
                 }
         }
 
-    });
-  }
 }
