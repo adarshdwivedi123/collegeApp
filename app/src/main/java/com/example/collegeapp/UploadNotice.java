@@ -42,7 +42,7 @@ public class UploadNotice extends AppCompatActivity {
     private Bitmap bitmap;
     private EditText noticetitle;
     private Button uploadNoticeButton;
-    private DatabaseReference reference;
+    private DatabaseReference reference,dbRef;
     private StorageReference storageReference;
     private String downalodurl="";
     private ProgressDialog progressDialog;
@@ -136,8 +136,8 @@ public class UploadNotice extends AppCompatActivity {
     }
 
     private void uploadData() {
-        reference=reference.child("Notice");
-        final String uniquekey= reference.push().getKey();
+        dbRef=reference.child("Notice");
+        final String uniquekey= dbRef.push().getKey();
         String title=noticetitle.getText().toString();
         Calendar calforDate=Calendar.getInstance();
         SimpleDateFormat currentDate=new SimpleDateFormat("dd-MM-yy");
@@ -148,7 +148,7 @@ public class UploadNotice extends AppCompatActivity {
         String time=currentTime.format(calforTime.getTime());
 
         NoticeData noticeData=new NoticeData(title,downalodurl,date,time,uniquekey);
-        reference.child(uniquekey).setValue(noticeData).addOnSuccessListener(new OnSuccessListener<Void>() {
+        dbRef.child(uniquekey).setValue(noticeData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 progressDialog.dismiss();

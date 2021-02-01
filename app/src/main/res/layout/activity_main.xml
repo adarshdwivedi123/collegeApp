@@ -53,6 +53,7 @@
             android:textStyle="bold"
             android:padding="5dp"
             android:layout_marginTop="10dp"
+            android:gravity="center"
             android:textColor="@color/textColor"
             />
     </LinearLayout>
@@ -96,6 +97,7 @@
             android:textStyle="bold"
             android:padding="5dp"
             android:layout_marginTop="10dp"
+            android:gravity="center"
             android:textColor="@color/textColor"
             />
     </LinearLayout>
@@ -133,6 +135,7 @@
                     android:layout_height="64dp"
                     android:background="@drawable/circle_pink"
                     android:src="@drawable/ic_upload"
+
                     android:padding="15dp"
                     >
 
@@ -153,6 +156,7 @@
                     android:textStyle="bold"
                     android:padding="5dp"
                     android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:textColor="@color/textColor"
                     />
             </LinearLayout>
@@ -192,7 +196,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Upload  Image"
+                    android:text="Add Faculty"
+                    android:gravity="center"
                     android:textStyle="bold"
                     android:padding="5dp"
                     android:layout_marginTop="10dp"
@@ -252,6 +257,7 @@
                     android:textStyle="bold"
                     android:padding="5dp"
                     android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:textColor="@color/textColor"
                     />
             </LinearLayout>

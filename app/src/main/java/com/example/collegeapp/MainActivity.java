@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.collegeapp.faculty.UpdateFaculty;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    CardView uploadNotice,AddgalleryImage,AddEbook;
+    CardView uploadNotice,AddgalleryImage,AddEbook,AddFaculty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +21,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         uploadNotice=findViewById(R.id.addNotice);
         AddgalleryImage=findViewById(R.id.addGalleryImage);
         AddEbook=findViewById(R.id.addEbook);
+        AddFaculty=findViewById(R.id.faculty);
 
         uploadNotice.setOnClickListener(this);
         AddgalleryImage.setOnClickListener(this);
         AddEbook.setOnClickListener(this);
+        AddFaculty.setOnClickListener(this);
 
     }
 
@@ -42,8 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.addEbook:
                         intent=new Intent(MainActivity.this,UploadPdf.class);
                         startActivity(intent);
+                        break;
 
-
+                    case R.id.faculty:
+                        intent=new Intent(MainActivity.this, UpdateFaculty.class);
+                        startActivity(intent);
+                        break;
 
                 }
         }
