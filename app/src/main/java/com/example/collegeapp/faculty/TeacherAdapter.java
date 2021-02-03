@@ -1,6 +1,7 @@
 package com.example.collegeapp.faculty;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +21,13 @@ import java.util.List;
 public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherViewAdapter> {
     private List<TeacherData> list;
     private Context context;
+    private String category;
 
-    public TeacherAdapter(List<TeacherData> list, Context context) {
+
+    public TeacherAdapter(List<TeacherData> list, Context context,String category) {
         this.list = list;
         this.context = context;
+        this.category=category;
     }
 
     @NonNull
@@ -37,7 +41,7 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
 
     @Override
     public void onBindViewHolder(@NonNull TeacherViewAdapter holder, int position) {
-        TeacherData item=list.get(position);
+        final TeacherData item=list.get(position);
         holder.name.setText(item.getName());
         holder.email.setText(item.getEmail());
         holder.post.setText(item.getPost());
@@ -49,7 +53,16 @@ public class TeacherAdapter extends RecyclerView.Adapter<TeacherAdapter.TeacherV
         holder.update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Update Teacher", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(context,UpdateTeacher.class);
+                intent.putExtra("name",item.getName());
+                intent.putExtra("email",item.getEmail());
+                intent.putExtra("post",item.getPost());
+                intent.putExtra("image",item.getImage());
+                intent.putExtra("key",item.getKey());
+                intent.putExtra("category",category);
+                context.startActivity(intent);
+
+
             }
         });
 
